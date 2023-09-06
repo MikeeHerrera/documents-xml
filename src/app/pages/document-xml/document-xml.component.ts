@@ -9,16 +9,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DocumentXmlComponent {
  datosxml:any;
+ nameFile:any;
   constructor(
     private router: ActivatedRoute,
     private http: HttpClient
   ){
     this.router.params.subscribe((result:any) =>{
-
+    this.nameFile = result.nombre;
       const datos = 'id=' + result.id + '&Tipo=' + 'XML';
       this.consultaCFDI(datos);
       console.log(result)
-    })
+    });
 
   }
 
@@ -39,7 +40,7 @@ export class DocumentXmlComponent {
     var a = document.createElement("a"),
    url = URL.createObjectURL(dataBlob);
     a.href = url;
-    a.download = this.datosxml.nombre;
+    a.download = this.nameFile;
     document.body.appendChild(a);
     a.click();
     setTimeout(function() {
