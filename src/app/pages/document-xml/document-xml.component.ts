@@ -35,7 +35,7 @@ export class DocumentXmlComponent {
   }
 
   savexml(){
-    const dataBlob = this.b64toBlob(this.datosxml.file,'application/xml',512);
+    const dataBlob = this.b64toBlob(this.datosxml.file,'text/xml',512);
     var a = document.createElement("a"),
    url = URL.createObjectURL(dataBlob);
     a.href = url;
