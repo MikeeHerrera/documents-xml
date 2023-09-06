@@ -27,9 +27,10 @@ export class DocumentXmlComponent {
     return this.http
       .post('https://consulta-cfdi.starmedica.com:8086/RestApi/ConsultaCFDI', dataToSend, {
         headers: this.getHttpHeaders(),
-      }).subscribe((result:any) =>{
+      }).forEach((result:any) =>{
        const datos = JSON.parse(result);
        this.datosxml = datos;
+       this.savexml();
       });
   }
 
@@ -38,7 +39,7 @@ export class DocumentXmlComponent {
     var a = document.createElement("a"),
    url = URL.createObjectURL(dataBlob);
     a.href = url;
-    a.download = 'ejemploxml';
+    a.download = this.datosxml.nombre;
     document.body.appendChild(a);
     a.click();
     setTimeout(function() {
