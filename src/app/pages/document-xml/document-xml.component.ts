@@ -11,12 +11,13 @@ export class DocumentXmlComponent {
   datosxml: any;
   nameFile: any;
   download: boolean = false;
+  port:any;
   constructor(private router: ActivatedRoute, private http: HttpClient) {
     this.router.params.subscribe((result: any) => {
       this.nameFile = result.nombre;
+      this.port = result.puerto;
       const datos = 'id=' + result.id + '&Tipo=' + 'XML';
       this.consultaCFDI(datos);
-      console.log(result);
     });
 
     setTimeout(() => {
@@ -28,7 +29,7 @@ export class DocumentXmlComponent {
   consultaCFDI(dataToSend: any) {
     return this.http
       .post(
-        'https://consulta-cfdi.starmedica.com:8086/RestApi/ConsultaCFDI',
+        `https://consulta-cfdi.starmedica.com:${this.port}/RestApi/ConsultaCFDI`,
         dataToSend,
         {
           headers: this.getHttpHeaders(),
@@ -37,6 +38,7 @@ export class DocumentXmlComponent {
       .forEach((result: any) => {
         const datos = JSON.parse(result);
         this.datosxml = datos;
+        this.savexml();
       });
   }
 

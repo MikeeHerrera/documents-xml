@@ -10,7 +10,7 @@ const routes: Routes = [
     component: AppComponent,
     children: [
       {
-            path: 'xml/:id/:nombre',
+            path: 'xml/:id/:nombre/:puerto',
             component: DocumentXmlComponent
           },
         ]}
