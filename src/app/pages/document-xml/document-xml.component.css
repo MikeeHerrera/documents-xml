@@ -1,0 +1,48 @@
+.head {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+img {
+    height: inherit;
+}
+
+.barra { 
+    height: 20px;
+	position: relative;
+	border-radius: 25px;
+	padding: 10px;
+}
+.barra > span {
+  display: block;
+  height: 80%;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: #22AA11;
+  position: relative;
+  overflow: hidden;
+  animation: prog 2s linear;
+}
+@keyframes prog {
+  0% {width: 0%}
+  100% {width: 100%}
+}
+.content {
+    margin-top: 100px;
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.text-progress {
+    display: flex;
+    justify-content: center;
+    font-family: math;
+}

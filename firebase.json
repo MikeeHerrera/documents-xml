@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/download-docuemnts-start-medica",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
