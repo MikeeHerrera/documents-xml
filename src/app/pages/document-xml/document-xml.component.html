@@ -1,19 +1,26 @@
 
-<div class="head">
-    <img src="../../../assets/logo.jpg" alt="">
-</div>
+<div class="content-full">
 
-
-<div class="content">
-    <div class="barra">
-        <span style="width:100%"></span>
-      </div>
-
-      <div *ngIf="!download" class="text-progress">
-          Descargando....
-      </div>
-      <div *ngIf="download" class="text-progress">
-        Archivo descargado.
+    <div class="contentChild">
+        <div class="head">
+            <img src="../../../assets/logo.jpg" alt="">
+        </div>
+        
+        
+        <div class="content">
+            <div class="barra">
+                <span style="width:100%"></span>
+              </div>
+        
+              <div *ngIf="!download" class="text-progress">
+                  Descargando....
+              </div>
+              <div *ngIf="download" class="text-progress">
+                Archivo descargado.
+            </div>
+        </div>
+        
     </div>
+    
+    
 </div>
-

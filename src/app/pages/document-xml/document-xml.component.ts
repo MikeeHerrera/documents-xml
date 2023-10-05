@@ -41,13 +41,22 @@ export class DocumentXmlComponent {
         this.savexml();
       });
   }
+   generateUUID() {
+    var d = new Date().getTime();
+    var uuid = 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = (d + Math.random() * 16) % 16 | 0;
+        d = Math.floor(d / 16);
+        return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+    return uuid;
+}
 
-  savexml() {
+ async savexml() {
     const dataBlob = this.b64toBlob(this.datosxml.file, 'text/xml', 512);
     var a = document.createElement('a'),
       url = URL.createObjectURL(dataBlob);
     a.href = url;
-    a.download = this.nameFile;
+    a.download = this.nameFile + await this.generateUUID();
     document.body.appendChild(a);
     a.click();
     setTimeout(function () {
